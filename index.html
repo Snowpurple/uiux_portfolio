@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sneha Yadav | UI/UX Designer</title>
+    <meta name="description" content="Portfolio of Sneha Yadav, aspiring UI/UX designer." />
+
+    <!-- Fonts used in the design -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Licorice&family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <!-- ============================================================
+       NAVIGATION BAR
+       Each link's href matches a section id further down the page.
+       ============================================================ -->
+    <header class="nav">
+        <a class="nav__brand" href="#home" aria-label="Go to top">
+            <!-- Hover rotates this badge (see .tilt in style.css) -->
+            <span class="logo-badge tilt">s</span>
+            <span class="nav__name">Sneha Yadav</span>
+        </a>
+
+        <!-- Hamburger button (only visible on phones) -->
+        <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span><span></span>
+    </button>
+
+        <nav id="nav-menu" class="nav__menu" aria-label="Main">
+            <a href="#home">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#about">About Me</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main class="page">
+
+        <!-- ============================================================
+         1. HOME SECTION
+         ============================================================ -->
+        <section id="home" class="hero">
+            <h1 class="hero__title">
+                <span>Hi,</span>
+                <!-- Hover rotates this photo -->
+                <span class="photo-frame photo-frame--small tilt">
+          <img src="assets/small.avif" alt="Portrait of Sneha Yadav" />
+        </span>
+                <span>I’m Sneha!</span>
+            </h1>
+
+            <p class="hero__text">
+                Aspiring UI/UX Designer with a B.Tech background in Computer Science and AI/ML, skilled in Figma, wireframing, prototyping, and Auto Layout.
+            </p>
+
+            <!-- Tool icons: replace the files in /assets, or change the alt text -->
+            <ul class="tools">
+                <li><img src="assets/figma.webp" alt="Tool 1" /></li>
+                <li><img src="assets/canva.webp" alt="Tool 2" /></li>
+                <li><img src="assets/html.webp" alt="Tool 3" /></li>
+                <li><img src="assets/css.webp" alt="Tool 4" /></li>
+                <li><img src="assets/vs.webp" alt="Tool 5" /></li>
+            </ul>
+
+            <!-- Bouncing arrow: scrolls to Projects -->
+            <a class="scroll-arrow" href="#projects" aria-label="Scroll down to projects">
+                <svg viewBox="0 0 24 24" width="50" height="50" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3v17" />
+          <path d="M6 14l6 6 6-6" />
+        </svg>
+            </a>
+        </section>
+
+        <!-- ============================================================
+         2. PROJECTS SECTION
+         For every project, edit:
+           - data: title, type, description, image
+           - case-study link (Behance)  -> class "js-case-study"
+           - prototype link (Figma)     -> class "js-prototype"
+         To add a project, copy one <article class="project"> block.
+         ============================================================ -->
+        <section id="projects" class="projects">
+            <h2 class="section-title">Projects</h2>
+
+            <div class="projects__grid">
+
+                <!-- Project 1 -->
+                <article class="project">
+                    <a class="project__image js-case-study" href="https://www.behance.net/YOUR-USERNAME/kisan-verse" target="_blank" rel="noopener" aria-label="Open Kisan-Verse case study">
+                        <img src="assets/cover_img.avif" alt="Kisan-Verse app screens" />
+                    </a>
+                    <p class="project__type">Mobile Application</p>
+                    <h3 class="project__title">
+                        <a class="js-case-study" href="https://www.behance.net/YOUR-USERNAME/kisan-verse" target="_blank" rel="noopener">Kisan-Verse</a>
+                    </h3>
+                    <p class="project__text">
+                        A dashboard application that provides all the required information in single screen with the experts help and suggests action plans
+                    </p>
+                    <div class="project__links">
+                        <a class="btn btn--small js-case-study" href="https://www.behance.net/YOUR-USERNAME/kisan-verse" target="_blank" rel="noopener">Case Study</a>
+                        <a class="btn btn--small js-prototype" href="https://www.figma.com/proto/YOUR-KISAN-VERSE-PROTOTYPE" target="_blank" rel="noopener">Prototype</a>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="project">
+                    <a class="project__image js-case-study" href="https://www.behance.net/YOUR-USERNAME/ishavarya" target="_blank" rel="noopener" aria-label="Open Ishavarya case study">
+                        <img src="assets/ishvarya.avif" alt="Ishavarya website screens" />
+                    </a>
+                    <p class="project__type">Website</p>
+                    <h3 class="project__title">
+                        <a class="js-case-study" href="https://www.behance.net/YOUR-USERNAME/ishavarya" target="_blank" rel="noopener">Ishavarya</a>
+                    </h3>
+                    <p class="project__text">
+                        ISHAVARYA is a sacred-products and gifting e-commerce platform built to streamline how users discover puja essentials, occasion-specific collections, and curated gifts in a single digital experience.
+                    </p>
+                    <div class="project__links">
+                        <a class="btn btn--small js-case-study" href="https://www.figma.com/proto/ZZUp5RQasCWxWWRMgGuuKT/Untitled?node-id=515-1861&t=3MXiiZ0HOK21DxO5-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=249%3A1193&show-proto-sidebar=1"
+                            target="_blank" rel="noopener">Case Study</a>
+                        <a class="btn btn--small js-prototype" href="https://www.ishavarya.com" target="_blank" rel="noopener">Live link</a>
+                    </div>
+                </article>
+
+                <!-- Project 3 (coming soon: no links yet; copy the links block from above when ready) -->
+                <article class="project project--soon">
+                    <div class="project__image">
+                        <img src="assets/closet.avif" alt="Closet app placeholder" />
+                    </div>
+                    <p class="project__type">Mobile Application</p>
+                    <h3 class="project__title">Closet (Coming soon)</h3>
+                    <p class="project__text">
+                        I want to make a project for girls to solve their "nothing to wear" problem by making an app where it mix match all your outfits and suggests as per the occasion, weather and marked events
+                    </p>
+                </article>
+
+                <!-- Project 4 (coming soon) -->
+                <article class="project project--soon">
+                    <div class="project__image">
+                        <img src="assets/noImage.webp" alt=" Upcoming project placeholder " />
+                    </div>
+                    <p class="project__type ">Mobile Application</p>
+                    <h3 class="project__title ">Coming soon</h3>
+                    <p class="project__text ">...</p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ============================================================
+         3. ABOUT SECTION
+         ============================================================ -->
+        <section id="about" class="about ">
+            <div class="about__text ">
+                <h2 class="section-title section-title--left ">About Me</h2>
+                <p>
+                    Aspiring UI/UX Designer with a B.Tech background in Computer Science and AI/ML, skilled in Figma, wireframing, prototyping, and Auto Layout.
+                </p>
+                <p>
+                    Passionate about user-centered design, responsive interfaces, and usability, with a focus on creating intuitive, accessible, and visually engaging digital experiences.
+                </p>
+            </div>
+
+            <!-- Hover rotates this photo -->
+            <div class="photo-frame photo-frame--large tilt ">
+                <img src="assets/Pink_shirt.avif " alt="Sneha Yadav sitting in a car " />
+            </div>
+        </section>
+
+        <!-- ============================================================
+         QUOTE BANNER
+         ============================================================ -->
+        <section class="quote ">
+            <p>To create Something, One should ask Questions</p>
+        </section>
+
+        <!-- ============================================================
+         4. CONTACT SECTION
+         Paste your Resume and LinkedIn links in the two buttons.
+         ============================================================ -->
+
+        <section id="contact" class="contact">
+            <p class=" contact__lead ">Want to turn your vision into reality?</p>
+            <h2 class="contact__title ">Let’s Connect</h2>
+
+            <div class="contact__buttons ">
+                <!-- EDIT: paste your resume link (Google Drive, PDF in this folder, etc.) -->
+                <a class="btn " id="resume-link " href="PASTE-YOUR-RESUME-LINK-HERE " target="_blank " rel="noopener ">Resume</a>
+                <!-- EDIT: paste your LinkedIn profile link -->
+                <a class="btn " id="linkedin-link " href="https://www.linkedin.com/in/sneha-yadav-09ba0a300 " target="_blank " rel="noopener ">LinkedIn</a>
+            </div>
+
+            <a class="contact__email " href="mailto:snehayadav.2089@gmail.com ">
+                <svg viewBox="0 0 24 24 " width="25 " height="24 " fill="none " stroke="currentColor " stroke-width="1.8 " stroke-linecap="round " stroke-linejoin="round " aria-hidden="true ">
+          <rect x="3 " y="5 " width="18 " height="14 " rx="2 " />
+          <path d="M3 7l9 6 9-6 " />
+        </svg> snehayadav.2089@gmail.com
+            </a>
+        </section>
+
+    </main>
+</body>
+
+</html>

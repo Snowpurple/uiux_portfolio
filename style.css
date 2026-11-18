@@ -1,0 +1,636 @@
+/* ==========================================================
+   PORTFOLIO STYLES  -  Sneha Yadav
+   Sections in this file:
+     1. Colors, fonts & sizes (edit these first)
+     2. Base
+     3. Navigation
+     4. Home (hero)
+     5. Projects
+     6. About
+     7. Quote banner
+     8. Contact
+     9. Hover rotation + arrow animation
+    10. Tablet & mobile (responsive)
+   ========================================================== */
+
+
+/* ---------- 1. COLORS, FONTS & SIZES ---------- */
+
+:root {
+    --bg-outer: #e2dcdc;
+    /* page background (the grey behind everything) */
+    --bg-card: #f9f8f8;
+    /* main white-ish panel */
+    --white: #ffffff;
+    --black: #000000;
+    --grey: #d9d9d9;
+    /* buttons, photo backing */
+    --grey-dark: #cbc7c7;
+    --border: #b3b6b3;
+    --font-main: "Inter", system-ui, sans-serif;
+    --font-hero: "Rubik Doodle Shadow", "Inter", sans-serif;
+    --font-logo: "Licorice", cursive;
+    --radius: 15px;
+    --radius-sm: 5px;
+    --max-width: 1380px;
+    --gutter: 30px;
+    /* space at left/right of the page */
+    --nav-height: 80px;
+    --tilt-speed: 0.35s;
+    /* how fast photos rotate on hover */
+}
+
+
+/* ---------- 2. BASE ---------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    /* smooth scrolling for menu links */
+    scroll-padding-top: calc(var(--nav-height) + 20px);
+    /* keeps titles clear of the sticky nav */
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-main);
+    color: var(--black);
+    background: var(--bg-outer);
+    line-height: 1.5;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+}
+
+
+/* Main white panel that holds all sections */
+
+.page {
+    max-width: var(--max-width);
+    margin: 20px auto 30px;
+    padding: 0 clamp(20px, 6vw, 80px);
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    width: calc(100% - 2 * var(--gutter));
+}
+
+.section-title {
+    font-size: clamp(26px, 3vw, 32px);
+    font-weight: 700;
+    text-align: center;
+    margin: 0 0 40px;
+}
+
+.section-title--left {
+    text-align: left;
+    font-size: clamp(30px, 3.5vw, 40px);
+}
+
+
+/* Reusable button (Resume, LinkedIn, Case Study, Prototype) */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 190px;
+    height: 70px;
+    padding: 0 24px;
+    background: var(--grey);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 16px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.btn:hover {
+    background: var(--grey-dark);
+    transform: translateY(-2px);
+}
+
+.btn--small {
+    min-width: 0;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+/* ---------- 3. NAVIGATION ---------- */
+
+.nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--nav-height);
+    max-width: var(--max-width);
+    width: calc(100% - 2 * var(--gutter));
+    margin: 0 auto;
+    padding: 0 40px;
+    background: var(--white);
+    border-radius: 0 0 var(--radius) var(--radius);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.nav__brand {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    text-decoration: none;
+}
+
+.nav__name {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+
+/* Small black square with the letter "s" */
+
+.logo-badge {
+    display: grid;
+    place-items: center;
+    width: 45px;
+    height: 45px;
+    background: var(--black);
+    color: var(--white);
+    border: 2px solid var(--grey-dark);
+    border-radius: var(--radius);
+    font-family: var(--font-logo);
+    font-size: 32px;
+    line-height: 1;
+}
+
+.nav__menu {
+    display: flex;
+    gap: 40px;
+}
+
+.nav__menu a {
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 4px 0;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.nav__menu a:hover,
+.nav__menu a.is-active {
+    border-bottom-color: var(--black);
+}
+
+
+/* Hamburger button: hidden on desktop */
+
+.nav__toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 8px;
+    background: none;
+    border: 0;
+    cursor: pointer;
+}
+
+.nav__toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--black);
+    transition: transform 0.25s, opacity 0.25s;
+}
+
+.nav__toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.nav__toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav__toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* ---------- 4. HOME (HERO) ---------- */
+
+.hero {
+    min-height: calc(100vh - var(--nav-height) - 20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 0;
+}
+
+.hero__title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(16px, 4vw, 50px);
+    margin: 0 0 30px;
+    font-family: var(--font-hero);
+    font-weight: 400;
+    font-size: clamp(40px, 6vw, 64px);
+}
+
+.hero__text {
+    max-width: 802px;
+    margin: 0 0 30px;
+    font-size: clamp(16px, 1.6vw, 20px);
+}
+
+.tools {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin: 0 0 30px;
+    padding: 0;
+    list-style: none;
+}
+
+.tools img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+}
+
+.scroll-arrow {
+    display: inline-block;
+    color: var(--black);
+    line-height: 0;
+}
+
+
+/* ---------- 5. PROJECTS ---------- */
+
+.projects {
+    padding: 80px 0;
+}
+
+.projects__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 80px 70px;
+}
+
+.project__image {
+    display: block;
+    aspect-ratio: 320 / 180;
+    overflow: hidden;
+    background: var(--grey-dark);
+    border-radius: var(--radius);
+}
+
+.project__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+
+a.project__image:hover img {
+    transform: scale(1.04);
+}
+
+
+/* gentle zoom on hover */
+
+.project__type {
+    margin: 12px 0 0;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.project__title {
+    margin: 4px 0 8px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.project__title a {
+    text-decoration: none;
+}
+
+.project__title a:hover {
+    text-decoration: underline;
+}
+
+.project__text {
+    margin: 0 0 16px;
+    font-size: 16px;
+    max-width: 583px;
+}
+
+.project__links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.project--soon .project__image {
+    background: #e6e0d8;
+}
+
+
+/* ---------- 6. ABOUT ---------- */
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+    padding: 100px 0 120px;
+}
+
+.about__text {
+    max-width: 400px;
+    justify-self: center;
+}
+
+.about__text p {
+    margin: 0 0 20px;
+    font-size: 16px;
+}
+
+
+/* ---------- 7. QUOTE BANNER ---------- */
+
+.quote {
+    display: grid;
+    place-items: center;
+    min-height: 190px;
+    padding: 30px 20px;
+    background: var(--black);
+    color: var(--white);
+    border-radius: var(--radius);
+    text-align: center;
+}
+
+.quote p {
+    margin: 0;
+    font-size: clamp(22px, 3vw, 40px);
+    font-weight: 700;
+}
+
+
+/* ---------- 8. CONTACT ---------- */
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 150px 0 120px;
+}
+
+.contact__lead {
+    margin: 0 0 10px;
+    font-size: clamp(20px, 2.4vw, 32px);
+}
+
+.contact__title {
+    margin: 0 0 60px;
+    font-size: clamp(40px, 6vw, 64px);
+    font-weight: 700;
+}
+
+.contact__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.contact__email {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.contact__email:hover {
+    text-decoration: underline;
+}
+
+
+/* ---------- 9. HOVER ROTATION + ARROW ANIMATION ---------- */
+
+
+/* Photo with a grey tilted backing (hero + about) */
+
+.photo-frame {
+    position: relative;
+    flex: none;
+    transform: rotate(var(--tilt, -10deg));
+}
+
+.photo-frame::before {
+    /* the grey square behind the photo */
+    content: "";
+    position: absolute;
+    inset: calc(var(--pad) * -1);
+    background: var(--grey-dark);
+    border-radius: inherit;
+}
+
+.photo-frame img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+    background: var(--grey);
+    /* shows while the image is missing */
+}
+
+.photo-frame--small {
+    --tilt: -10deg;
+    --pad: 5px;
+    width: 130px;
+    height: 130px;
+    border-radius: var(--radius);
+}
+
+.photo-frame--large {
+    --tilt: -5deg;
+    --pad: 10px;
+    width: 390px;
+    height: 280px;
+    max-width: 100%;
+    border-radius: var(--radius-sm);
+    justify-self: center;
+}
+
+
+/* Any element with class "tilt" rotates a little when hovered.
+   Change the numbers below to rotate more or less. */
+
+.tilt {
+    transition: transform var(--tilt-speed) ease;
+}
+
+.logo-badge.tilt:hover {
+    transform: rotate(-12deg);
+}
+
+.photo-frame--small.tilt:hover {
+    transform: rotate(6deg);
+}
+
+.photo-frame--large.tilt:hover {
+    transform: rotate(3deg);
+}
+
+
+/* Arrow that keeps bouncing down to say "scroll" */
+
+@keyframes bounce-down {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(14px);
+    }
+}
+
+.scroll-arrow {
+    animation: bounce-down 1.4s ease-in-out infinite;
+}
+
+
+/* Respect people who turn animations off in their device settings */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    .scroll-arrow {
+        animation: none;
+    }
+}
+
+
+/* ---------- 10. TABLET & MOBILE ---------- */
+
+
+/* Tablet */
+
+@media (max-width: 900px) {
+     :root {
+        --gutter: 16px;
+    }
+    .nav {
+        padding: 0 20px;
+    }
+    .nav__menu {
+        gap: 24px;
+    }
+    .projects__grid {
+        gap: 40px 24px;
+    }
+    .about {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        padding: 70px 0 90px;
+    }
+    .about__text {
+        max-width: 520px;
+    }
+    .contact {
+        padding: 100px 0 80px;
+    }
+}
+
+
+/* Phone: nav turns into a dropdown with a hamburger button */
+
+@media (max-width: 700px) {
+     :root {
+        --nav-height: 70px;
+        --gutter: 10px;
+    }
+    .nav__name {
+        font-size: 20px;
+    }
+    .nav__toggle {
+        display: flex;
+    }
+    .nav__menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 20px 16px;
+        background: var(--white);
+        border-radius: 0 0 var(--radius) var(--radius);
+        box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+        /* closed by default */
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-8px);
+        transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+    }
+    .nav__menu.is-open {
+        visibility: visible;
+        opacity: 1;
+        transform: none;
+    }
+    .nav__menu a {
+        padding: 14px 0;
+        border-bottom: 1px solid #eee;
+    }
+    .page {
+        padding: 0 20px;
+    }
+    .hero {
+        padding: 40px 0;
+    }
+    .tools {
+        gap: 16px;
+    }
+    .projects {
+        padding: 60px 0;
+    }
+    .projects__grid {
+        grid-template-columns: 1fr;
+        gap: 44px;
+    }
+    .photo-frame--large {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 410 / 350;
+    }
+    .contact__buttons {
+        gap: 20px;
+    }
+    .contact__buttons .btn {
+        min-width: 160px;
+        height: 60px;
+    }
+}
